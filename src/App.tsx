@@ -71,8 +71,14 @@ function App() {
 
         {/* Selección de idiomas */}
         <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-          <MenuLanguage onSelect={(code) => setSourceLanguage(code)} />
-          <MenuLanguage onSelect={(code) => setTargetLanguage(code)} />
+          <MenuLanguage
+            value={sourceLanguage}
+            onSelect={(code) => setSourceLanguage(code)}
+          />
+          <MenuLanguage
+            value={targetLanguage}
+            onSelect={(code) => setTargetLanguage(code)}
+          />
         </div>
 
         {/* Caja de texto para ingresar */}
@@ -101,5 +107,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

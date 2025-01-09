@@ -1,5 +1,5 @@
 export default class Translate {
-  private baseUrl: string = "https://translation.googleapis.com/language/translate/v2";
+  private baseUrl: string = import.meta.env.VITE_API_URL || "https://translation.googleapis.com/language/translate/v2";
   private apiKey: string = import.meta.env.VITE_API_KEY || "";
 
   async translatetext(text: string, targetLang: string, sourceLang: string = "auto") {
