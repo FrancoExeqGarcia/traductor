@@ -10,8 +10,8 @@ export default defineConfig({
       '/api': {
         target: 'https://translate-backend-274548491076.us-central1.run.app',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     },
   },
-})
+});
