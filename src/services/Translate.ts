@@ -1,18 +1,13 @@
 export default class Translate {
-  private baseUrl: string = import.meta.env.VITE_API_URL || "https://translation.googleapis.com/language/translate/v2";
-  private apiKey: string = import.meta.env.VITE_API_KEY || "";
+  private baseUrl: string = import.meta.env.VITE_API_URL || "https://translate-backend-274548491076.us-central1.run.app/api";
 
   async translatetext(text: string, targetLang: string, sourceLang: string = "auto") {
-    if (!this.apiKey) {
-      throw new Error("Clave API no configurada.");
-    }
-
     if (!text || !targetLang) {
       throw new Error("Texto o idioma faltante.");
     }
 
     try {
-      const response = await fetch(`${this.baseUrl}?key=${this.apiKey}`, {
+      const response = await fetch(`${this.baseUrl}/Translate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
