@@ -16,7 +16,7 @@ export default class Translate {
           q: text,
           source: sourceLang,
           target: targetLang,
-          format: "text",
+         // format: "text",
         }),
       });
 
