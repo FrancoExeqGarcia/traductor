@@ -1,5 +1,6 @@
 export default class Translate {
-  private baseUrl: string = import.meta.env.VITE_API_URL || "https://translate-backend-274548491076.us-central1.run.app/api";
+  //private baseUrl: string = import.meta.env.VITE_API_URL || "https://translate-backend-274548491076.us-central1.run.app/api";
+  private baseUrl: string = "https://translate-backend-274548491076.us-central1.run.app/api";
 
   async translatetext(text: string, targetLang: string, sourceLang: string = "auto") {
     if (!text || !targetLang) {
