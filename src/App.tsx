@@ -11,7 +11,6 @@ import TranslateBox from "./components/translateBox/TranslateBox";
 function App() {
   const [sourceLanguage, setSourceLanguage] = useState<string>("en");
   const [targetLanguage, setTargetLanguage] = useState<string>("es");
-  const [textToTranslate, setTextToTranslate] = useState<string>("");
   const [translatedText, setTranslatedText] = useState<string>(
     "Aquí aparecerá tu traducción"
   );
@@ -62,14 +61,10 @@ function App() {
 
   return (
     <div>
-      {/* Barra de navegación */}
       <Nav />
-
-      {/* Contenido principal */}
       <main>
         <h1>Bienvenido al Traductor</h1>
 
-        {/* Selección de idiomas */}
         <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
           <MenuLanguage
             value={sourceLanguage}
@@ -81,34 +76,25 @@ function App() {
           />
         </div>
 
-        {/* Fila para las cajas */}
         <div className="row">
-          {/* Caja de texto para ingresar */}
           <div className="col-md-6">
             <TranslateBox
               onTranslate={(text) => {
-                setTextToTranslate(text);
                 handleTranslate(text);
               }}
             />
           </div>
-
-          {/* Resultado de la traducción */}
           <div className="col-md-6">
             <ResultBox translatedText={translatedText} />
           </div>
         </div>
       </main>
-
-      {/* Botón para alternar tema */}
       <button
         onClick={toggleTheme}
         style={{ margin: "1rem", padding: "0.5rem 1rem" }}
       >
         Cambiar a {isDarkMode ? "Tema Claro" : "Tema Oscuro"}
       </button>
-
-      {/* Pie de página */}
       <Footer />
     </div>
   );

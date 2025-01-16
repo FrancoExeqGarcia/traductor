@@ -1,6 +1,6 @@
 .translate-box {
   width: 100%;
-  max-width: 100%; 
+  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -10,7 +10,9 @@
   font-size: 1rem;
   border: 1px solid var(--text-color);
   border-radius: 4px;
-  resize: none;
+  resize: vertical;
+  min-height: 40px;
+  max-height: 400px; 
 }
 
 .translate-box button {
