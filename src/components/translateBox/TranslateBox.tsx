@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
-import './TranslateBox.css';
+import React from "react";
+import "./TranslateBox.css";
 
-interface TranslateBoxProps {
-  onTranslate: (text: string) => void; 
-}
+type TranslateBoxProps = {
+  onTranslate: (text: string) => void;
+};
 
-function TranslateBox({ onTranslate }: TranslateBoxProps) {
-  const [text, setText] = useState<string>('');
+const TranslateBox: React.FC<TranslateBoxProps> = ({ onTranslate }) => {
+  const [text, setText] = React.useState("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value);
-  };
-
-  const handleTranslate = () => {
-    if (text.trim()) {
-      onTranslate(text); 
-    } else {
-      alert('Por favor, ingresa texto para traducir.');
-    }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onTranslate(text);
   };
 
   return (
     <div className="translate-box">
-      <label htmlFor="translate-input">Texto para traducir:</label>
-      <textarea
-        id="translate-input"
-        value={text}
-        onChange={handleChange}
-        placeholder="Escribe el texto aquí..."
-      ></textarea>
-      <button onClick={handleTranslate} className="translate-button">
-        Traducir
-      </button>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="text-to-translate">Texto para traducir:</label>
+        <textarea
+          id="text-to-translate"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Escribe el texto aquí..."
+        ></textarea>
+        <button type="submit">Traducir</button>
+      </form>
     </div>
   );
-}
+};
 
 export default TranslateBox;

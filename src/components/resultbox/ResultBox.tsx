@@ -1,21 +1,21 @@
-import './ResultBox.css';
+import React from "react";
+import "./ResultBox.css";
 
-interface ResultBoxProps {
+type ResultBoxProps = {
   translatedText: string;
-}
+};
 
-function ResultBox({ translatedText }: ResultBoxProps) {
+const ResultBox: React.FC<ResultBoxProps> = ({ translatedText }) => {
   return (
     <div className="result-box">
-      <label htmlFor="result-output">Resultado de la traducción:</label>
+      <label htmlFor="translated-text">Resultado de la traducción:</label>
       <textarea
-        id="result-output"
+        id="translated-text"
         value={translatedText}
         readOnly
-        placeholder="El texto traducido aparecerá aquí..."
       ></textarea>
     </div>
   );
-}
+};
 
 export default ResultBox;

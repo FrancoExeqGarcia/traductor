@@ -81,17 +81,23 @@ function App() {
           />
         </div>
 
-        {/* Caja de texto para ingresar */}
-        <TranslateBox
-          onTranslate={(text) => {
-            setTextToTranslate(text);
-            handleTranslate(text);
-          }}
-        />
-        <p>Texto a traducir: {textToTranslate}</p>
+        {/* Fila para las cajas */}
+        <div className="row">
+          {/* Caja de texto para ingresar */}
+          <div className="col-md-6">
+            <TranslateBox
+              onTranslate={(text) => {
+                setTextToTranslate(text);
+                handleTranslate(text);
+              }}
+            />
+          </div>
 
-        {/* Resultado de la traducción */}
-        <ResultBox translatedText={translatedText} />
+          {/* Resultado de la traducción */}
+          <div className="col-md-6">
+            <ResultBox translatedText={translatedText} />
+          </div>
+        </div>
       </main>
 
       {/* Botón para alternar tema */}
@@ -107,6 +113,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
